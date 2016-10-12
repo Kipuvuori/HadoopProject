@@ -14,4 +14,9 @@ sudo mv /usr/local/hadoop-2.7.2 /usr/local/hadoop
 # Installing Hadoop
 echo 'export HADOOP_HOME=/usr/local/hadoop' >> ~/.bashrc
 echo 'export PATH=$PATH:/usr/local/hadoop/bin' >> ~/.bashrc
-# echo 'export JAVA_HOME=/usr/lib/jvm/java-8-jdk' >> ~/.bashrc # Replace with your own jdk path
+# echo 'export JAVA_HOME=/usr/lib/jvm/java-8-jdk' >> ~/.bashrc #Replace with your own jdk path
+
+# Example
+mkdir input
+cp $HADOOP_HOME/*.txt input
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar  wordcount input output
