@@ -13,15 +13,16 @@
     ![Running Bash](https://raw.githubusercontent.com/13i224HetekiviLehmus/HadoopProject/master/data/running_bash.PNG)
   1. Type "y" to continue  
   1. Give username.
-  1. Give Password two times.  
+  1. Give password two times.  
   ![Bash Install](https://raw.githubusercontent.com/13i224HetekiviLehmus/HadoopProject/master/data/bash_install.PNG)
 1. Run Bash on Ubuntu on Windows  
 
 ### Tips
 
-* Linux files in Windows: ```C:\Users\Sante\AppData\Local\lxss``` 
+### Linux files in Windows 
+Can be found at: ```C:\Users\USERNAME\AppData\Local\lxss``` 
 
-* Fixing Hostname error:  
+### Fixing Hostname error
   ![Hostname Error](https://raw.githubusercontent.com/13i224HetekiviLehmus/HadoopProject/master/data/hostname_error.PNG)  
   1. Open ```/etc/hosts``` file. 
     * For example ```sudo vim /etc/hosts```  
