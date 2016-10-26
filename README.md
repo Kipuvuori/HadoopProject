@@ -4,7 +4,7 @@
 
 1. Enable Developer mode:  
   ![Developer Mode](https://raw.githubusercontent.com/13i224HetekiviLehmus/HadoopProject/master/data/developer_mode.PNG)
-1. Turn feature on:  
+1. Turn the Windows Subsystem for Linux (Beta) feature on:  
   ![Feature](https://raw.githubusercontent.com/13i224HetekiviLehmus/HadoopProject/master/data/feature.PNG)
 1. Reboot system.
 1. Run bash
