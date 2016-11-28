@@ -10,6 +10,8 @@ sudo chown hadoop:hadoop /user/hadoop
 sudo wget http://apache.claz.org/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz -P /usr/local/
 sudo tar xzf /usr/local/hadoop-2.7.2.tar.gz -C /usr/local
 sudo mv /usr/local/hadoop-2.7.2 /usr/local/hadoop
+sudo chown -R hadoop:hadoop /usr/local/hadoop
+sudo chmod g+w -R /usr/local/hadoop
 
 # Installing Hadoop
 echo 'export HADOOP_HOME=/usr/local/hadoop' >> ~/.bashrc
