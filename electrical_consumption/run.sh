@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-WORKING_DIR="/user/hadoop"
+WORKING_DIR="/user/hadoop/electrical_consumption"
 INPUT_DIR="${WORKING_DIR}/input_dir"
 OUTPUT_DIR="${WORKING_DIR}/output_dir"
+rm -rf ${WORKING_DIR}
 mkdir -p ${WORKING_DIR}/units
 cp ${DIR}/to_user_dir/* ${WORKING_DIR}/
 javac -classpath ${WORKING_DIR}/hadoop-core.jar -d units ${WORKING_DIR}/ProcessUnits.java
