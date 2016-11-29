@@ -25,7 +25,7 @@ public class ProcessUnits {
                         Reporter reporter) throws IOException {
             String line = value.toString();
             String lasttoken = null;
-            StringTokenizer s = new StringTokenizer(line, ",");
+            StringTokenizer s = new StringTokenizer(line, "\t");
             String year = s.nextToken();
 
             while (s.hasMoreTokens()) {
