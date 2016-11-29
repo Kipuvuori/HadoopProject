@@ -3,11 +3,13 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 WORKING_DIR="/user/hadoop/electrical_consumption"
 INPUT_DIR="${WORKING_DIR}/input_dir"
 OUTPUT_DIR="${WORKING_DIR}/output_dir"
+UNITS_DIR="${WORKING_DIR}/units"
+
 rm -rf ${WORKING_DIR}
-mkdir -p ${WORKING_DIR}/units
+mkdir -p ${UNITS_DIR}
 cp ${DIR}/to_user_dir/* ${WORKING_DIR}/
-javac -classpath ${WORKING_DIR}/hadoop-core.jar -d units ${WORKING_DIR}/ProcessUnits.java
-jar -cvf units.jar -C ${WORKING_DIR}/units/ ${WORKING_DIR}/
+javac -classpath ${WORKING_DIR}/hadoop-core.jar -d ${UNITS_DIR} ${WORKING_DIR}/ProcessUnits.java
+jar -cvf units.jar -C ${UNITS_DIR}/ ${WORKING_DIR}/
 ${HADOOP_HOME}/bin/hadoop fs -mkdir ${INPUT_DIR}
 ${HADOOP_HOME}/bin/hadoop fs -put ${WORKING_DIR}/sample.txt ${INPUT_DIR}
 ${HADOOP_HOME}/bin/hadoop fs -ls ${INPUT_DIR}/
