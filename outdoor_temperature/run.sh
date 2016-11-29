@@ -40,7 +40,7 @@ echo "Working directory: ${WORKING_DIR}"
 echo "Sample file: ${SAMPLE_FILE_PATH}"
 
 # Ask user if he wants to continue with current settings.
-read -p "Do you want to continue? " -n 1 -r
+read -p "Do you want to continue (y/n)? " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
