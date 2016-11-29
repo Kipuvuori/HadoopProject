@@ -19,7 +19,7 @@ then
     #get latest example temperature data
     URL="http://huone222.hopto.me:544/temperature.csv"
     echo $(date) 'Getting latest weather data. This might take a while...'
-    cd ${WORKING_DIR} && { curl -O --connect-timeout 45 --retry 5 "${URL}" ; cd -; }
+    cd ${DIR}/to_user_dir/input_dir && { curl -O --connect-timeout 45 --retry 5 "${URL}" ; cd -; }
 
 
     # Set default sample filename directory.
