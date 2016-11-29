@@ -6,14 +6,6 @@ if [ -z "$1" ]
 then
     # Set default working directory.
     WORKING_DIR="/user/hadoop/outdoor_temperature"
-
-    #get latest example temperature data
-
-    URL="http://huone222.hopto.me:544/temperature.csv"
-
-    echo $(date) 'Getting latest weather data. This might take a while...'
-    curl -O --connect-timeout 45 --retry 5 "${URL}"
-
 # If first argument is given
 else
     # Set given working directory
@@ -23,6 +15,13 @@ fi
 if [ -z "$2" ]
 # If second argument is empty.
 then
+
+    #get latest example temperature data
+    URL="http://huone222.hopto.me:544/temperature.csv"
+    echo $(date) 'Getting latest weather data. This might take a while...'
+    cd ${WORKING_DIR} && { curl -O --connect-timeout 45 --retry 5 "${URL}" ; cd -; }
+
+
     # Set default sample filename directory.
     SAMPLE_FILE_PATH=${WORKING_DIR}/"temperature.csv"
 # If second argument is given
@@ -40,7 +39,7 @@ echo "Working directory: ${WORKING_DIR}"
 echo "Sample file: ${SAMPLE_FILE_PATH}"
 
 # Ask user if he wants to continue with current settings.
-read -p "Do you want to continue (y/n)? " -n 1 -r
+read -p "Do you want to continue (y/N)? " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
