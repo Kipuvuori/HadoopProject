@@ -5,21 +5,11 @@ if [ -z "$1" ]
 # If first argument is empty.
 then
     # Set default working directory.
-    WORKING_DIR=${DIR}
+    WORKING_DIR=DIR
 # If first argument is given
 else
     # Set given working directory
     WORKING_DIR="${1%\/}"
-fi
-
-echo "Working directory: ${WORKING_DIR}"
-
-# Ask user if he wants to continue with current settings.
-read -p "Do you want to continue? " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    exit 1
 fi
 
 # Setting directories to use.
