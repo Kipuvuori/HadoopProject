@@ -26,14 +26,14 @@ public class ProcessUnits {
             String line = value.toString();
             String lasttoken = null;
             StringTokenizer s = new StringTokenizer(line, ",");
-            String year = s.nextToken();
+            String time-stamp = s.nextToken();
 
             while (s.hasMoreTokens()) {
                 lasttoken = s.nextToken();
             }
 
-            int avgprice = Integer.parseInt(lasttoken);
-            output.collect(new Text(year), new IntWritable(avgprice));
+            int avgtemp = Integer.parseInt(lasttoken);
+            output.collect(new Text(time-stamp), new IntWritable(avgtemp));
         }
     }
 
