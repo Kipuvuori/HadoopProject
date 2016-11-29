@@ -13,6 +13,6 @@ jar -cvf ${WORKING_DIR}/units.jar -C ${UNITS_DIR}/ .
 ${HADOOP_HOME}/bin/hadoop fs -mkdir ${INPUT_DIR}
 ${HADOOP_HOME}/bin/hadoop fs -put ${WORKING_DIR}/sample.txt ${INPUT_DIR}
 ${HADOOP_HOME}/bin/hadoop fs -ls ${INPUT_DIR}/
-${HADOOP_HOME}/bin/hadoop jar units.jar hadoop.ProcessUnits ${INPUT_DIR} ${OUTPUT_DIR}
+${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INPUT_DIR} ${OUTPUT_DIR}
 ${HADOOP_HOME}/bin/hadoop fs -ls ${OUTPUT_DIR}/
 ${HADOOP_HOME}/bin/hadoop fs -cat ${OUTPUT_DIR}/part-00000
