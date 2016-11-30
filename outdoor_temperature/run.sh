@@ -21,6 +21,8 @@ then
     echo $(date) 'Getting latest weather data to ' ${DIR}'/to_user_dir/temperature.csv. This might take a while...'
     curl --connect-timeout 45 --retry 5 -o ${DIR}/to_user_dir/temperature.csv "${URL}"
 
+    echo ''
+
     # Set default sample filename directory.
     SAMPLE_FILE_PATH=${WORKING_DIR}/"temperature.csv"
 # If second argument is given
@@ -37,6 +39,8 @@ UNITS_DIR="${WORKING_DIR}/units"
 echo "Working directory: ${WORKING_DIR}"
 echo "Sample file: ${SAMPLE_FILE_PATH}"
 
+echo ''
+
 # Ask user if he wants to continue with current settings.
 read -p "Do you want to continue (y/N)? " -n 1 -r
 echo
@@ -44,6 +48,8 @@ if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit 1
 fi
+
+echo ''
 
 # Removing working directory.
 rm -rf ${WORKING_DIR}
