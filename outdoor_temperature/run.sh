@@ -18,7 +18,7 @@ then
 
     #get latest example temperature data
     URL="http://huone222.hopto.me:544/temperature.csv"
-    echo $(date) 'Getting latest weather data. This might take a while...'
+    echo $(date) 'Getting latest weather data to ' ${DIR}'/to_user_dir/temperature.csv. This might take a while...'
     curl --connect-timeout 45 --retry 5 -o ${DIR}/to_user_dir/temperature.csv "${URL}"
 
     # Set default sample filename directory.
@@ -50,7 +50,7 @@ rm -rf ${WORKING_DIR}
 # Making working directory
 mkdir -p ${UNITS_DIR}
 # Copy necessary files to working directory.
-cp -R -v ${DIR}/to_user_dir/ ${WORKING_DIR}/
+cp -R ${DIR}/to_user_dir/* ${WORKING_DIR}/
 
 # If sample file is not found.
 if [ ! -f "$SAMPLE_FILE_PATH" ]
