@@ -13,18 +13,6 @@ import org.apache.hadoop.util.*;
 
 public class ProcessUnits {
     //Mapper classpackage hadoop;
-
-import java.util.*;
-
-import java.io.IOException;
-import java.io.IOException;
-
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.conf.*;
-import org.apache.hadoop.io.*;
-import org.apache.hadoop.mapred.*;
-import org.apache.hadoop.util.*;
-
     public class ProcessUnits {
         //Mapper class
         public static class E_EMapper extends MapReduceBase implements

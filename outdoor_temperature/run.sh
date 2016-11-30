@@ -50,7 +50,9 @@ rm -rf ${WORKING_DIR}
 # Making working directory
 mkdir -p ${UNITS_DIR}
 # Copy necessary files to working directory.
+echo 'copying...'
 cp -v ${DIR}/to_user_dir/* ${WORKING_DIR}/
+echo ''
 
 # If sample file is not found.
 if [ ! -f "$SAMPLE_FILE_PATH" ]
