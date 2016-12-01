@@ -13,31 +13,31 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
 public class ProcessUnits {
     //Mapper class
-    public static class TempMap extends Mapper<LongWritable, Text, Text, IntWritable> {
+    public static class TempMap extends Mapper<LongWritable, Text, Text, DoubleWritable> {
 
         public void map(LongWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
 
             String record = value.toString();
             String[] parts = record.split(",");
-            context.write(new Text(parts[0].substring(0,6)), new IntWritable(Integer.parseInt(parts[1])));
+            context.write(new Text(parts[0].substring(0,6)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
     }
 
 
     //Reducer class
-    public static class TempReduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+    public static class TempReduce extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
 
-        public void reduce(Text key, Iterable<IntWritable> values,Context context) throws IOException, InterruptedException {
+        public void reduce(Text key, Iterable<DoubleWritable> values,Context context) throws IOException, InterruptedException {
 
-            int maxValue = 0;
+            double maxValue = 0;
 
             //Looping and calculating Max for each year
-            for (IntWritable val : values) {
+            for (DoubleWritable val : values) {
                 maxValue = Math.max(maxValue, val.get());
             }
 
-            context.write(key, new IntWritable(maxValue));
+            context.write(key, new DoubleWritable(maxValue));
         }
     }
 
@@ -52,11 +52,11 @@ public class ProcessUnits {
 
         job.setMapOutputKeyClass(Text.class);
 
-        job.setMapOutputValueClass(IntWritable.class);
+        job.setMapOutputValueClass(DoubleWritable.class);
 
         job.setOutputKeyClass(Text.class);
 
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(DoubleWritable.class);
 
         job.setMapperClass(TempMap.class);
 
