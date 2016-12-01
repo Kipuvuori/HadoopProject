@@ -20,7 +20,7 @@ public class ProcessUnits {
                 throws IOException, InterruptedException {
 
             Configuration conf = context.getConfiguration();
-            String param = conf.get("test");
+            String param = conf.get("time_unit");
 
             int date_parse_end = 0;
 
