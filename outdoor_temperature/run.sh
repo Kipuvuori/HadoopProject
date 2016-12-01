@@ -54,12 +54,9 @@ echo ''
 # Removing working directory.
 rm -rf ${WORKING_DIR}
 # Making working directory
-mkdir -p -v ${INPUT_DIR}
-mkdir -p -v ${OUTPUT_DIR}
-mkdir -p -v ${UNITS_DIR}
+mkdir -p ${UNITS_DIR}
 # Copy necessary files to working directory.
-echo 'copying...'
-cp -v ${DIR}/to_user_dir/* ${WORKING_DIR}/
+cp  ${DIR}/to_user_dir/* ${WORKING_DIR}/
 echo ''
 
 # If sample file is not found.
