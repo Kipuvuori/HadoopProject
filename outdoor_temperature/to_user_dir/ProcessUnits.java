@@ -24,12 +24,12 @@ public class ProcessUnits {
 
             int date_parse_end = 0;
 
-            switch(param) {
-                case "y" :
+            switch(param.charAt(0)) {
+                case 'y' :
                     date_parse_end = 4;
                     break;
 
-                case "m" :
+                case 'm' :
                     date_parse_end = 7;
                     break;
 

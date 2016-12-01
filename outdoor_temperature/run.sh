@@ -56,10 +56,14 @@ echo
 if [[  $REPLY =~ [Yy]$ ]]
 then
     TIME_UNIT="y"
+    echo 'Calculating annual average temperature'
+    echo ''
 elif [[  $REPLY =~ [mM]$ ]]
 then
+    echo 'Calculating monthly average temperature'
     TIME_UNIT="m"
 else
+    echo 'Calculating daily average temperature'
     TIME_UNIT="d"
 fi
 
@@ -71,7 +75,7 @@ rm -rf ${WORKING_DIR}
 mkdir -p ${UNITS_DIR}
 # Copy necessary files to working directory.
 cp  ${DIR}/to_user_dir/* ${WORKING_DIR}/
-echo ''
+
 
 # If sample file is not found.
 if [ ! -f "$SAMPLE_FILE_PATH" ]
