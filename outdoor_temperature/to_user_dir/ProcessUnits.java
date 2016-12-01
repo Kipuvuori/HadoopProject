@@ -40,6 +40,9 @@ public class ProcessUnits {
             String record = value.toString();
             //split csv
             String[] parts = record.split(",", -1);
+
+            System.out.println(parts);
+
             //extract date and temperature
             context.write(new Text(parts[0].substring(0,date_parse_end)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
