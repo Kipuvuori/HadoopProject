@@ -54,7 +54,7 @@ echo ''
 read -p "Select unit of time (y,m,D) " ans
     case $ans in
         [Yy]* ) echo 'Calculating yearly average temperature';TIME_UNIT="y";;
-        [Mn]* ) echo 'Calculating monthly average temperature'; TIME_UNIT="m";;
+        [Mm]* ) echo 'Calculating monthly average temperature'; TIME_UNIT="m";;
         * ) echo 'Calculating daily average temperature';  TIME_UNIT="d";;
 esac
 
