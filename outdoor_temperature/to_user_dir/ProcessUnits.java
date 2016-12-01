@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
+
 public class ProcessUnits {
     //Mapper class
     public static class TempMap extends Mapper<LongWritable, Text, Text, DoubleWritable> {
@@ -41,7 +42,8 @@ public class ProcessUnits {
                 item_sum++;
             }
 
-            context.write(key, new DoubleWritable(temp_sum/item_sum));
+            //write key and value using 2 decimals
+            context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
         }
     }
 
