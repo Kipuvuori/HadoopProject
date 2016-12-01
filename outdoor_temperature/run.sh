@@ -54,6 +54,8 @@ echo ''
 # Removing working directory.
 rm -rf ${WORKING_DIR}
 # Making working directory
+mkdir -p ${INPUT_DIR}
+mkdir -p ${OUTPUT_DIR}
 mkdir -p ${UNITS_DIR}
 # Copy necessary files to working directory.
 echo 'copying...'
@@ -74,7 +76,7 @@ javac -classpath ${WORKING_DIR}/hadoop-core.jar -d ${UNITS_DIR} ${WORKING_DIR}/P
 # Making jar for the ProcessUnits.java program.
 jar -cvf ${WORKING_DIR}/units.jar -C ${UNITS_DIR}/ .
 # Making input directory for HDFS.
-${HADOOP_HOME}/bin/hadoop fs -mkdir /${INPUT_DIR}
+${HADOOP_HOME}/bin/hadoop fs -mkdir ${INPUT_DIR}
 # Putting sample file to HDFS's input directory.
 ${HADOOP_HOME}/bin/hadoop fs -put ${SAMPLE_FILE_PATH} ${INPUT_DIR}
 # Checking if files are in input directory.
