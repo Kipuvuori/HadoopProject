@@ -39,7 +39,6 @@ UNITS_DIR="${WORKING_DIR}/units"
 echo "Working directory: ${WORKING_DIR}"
 echo "Sample file: ${SAMPLE_FILE_PATH}"
 
-echo ''
 
 # Ask user if he wants to continue with current settings.
 read -p "Do you want to continue (y/N)? " -n 1 -r
@@ -47,6 +46,21 @@ echo
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
     exit 1
+fi
+
+echo ''
+
+# Ask user if he wants to continue with current settings.
+read -p "Select unit of time (y,m,D)" -n 1 -r
+echo
+if [[  $REPLY =~ [Yy]$ ]]
+then
+    TIME_UNIT="y"
+elif [[  $REPLY =~ [mM]$ ]]
+then
+    TIME_UNIT="m"
+else
+    TIME_UNIT="d"
 fi
 
 echo ''
@@ -82,7 +96,7 @@ ${HADOOP_HOME}/bin/hadoop fs -put ${SAMPLE_FILE_PATH} ${INPUT_DIR}
 # Checking if files are in input directory.
 ${HADOOP_HOME}/bin/hadoop fs -ls ${INPUT_DIR}/
 # Running this application with input and output directories.
-${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INPUT_DIR} ${OUTPUT_DIR}
+${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INPUT_DIR} ${OUTPUT_DIR} ${TIME_UNIT}
 # Checking files in output directory.
 ${HADOOP_HOME}/bin/hadoop fs -ls ${OUTPUT_DIR}/
 # Get files form hdfs

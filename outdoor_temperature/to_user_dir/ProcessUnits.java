@@ -19,12 +19,29 @@ public class ProcessUnits {
         public void map(LongWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
 
+            Configuration conf = context.getConfiguration();
+            String param = conf.get("test");
+
+            int date_parse_end = 0;
+
+            switch(param) {
+                case "y" :
+                    date_parse_end = 4;
+                    break;
+
+                case "m" :
+                    date_parse_end = 7;
+                    break;
+
+                default :
+                    date_parse_end = 10;
+            }
+
             String record = value.toString();
             //split csv
-            String[] parts = record.split(",");
+            String[] parts = record.split(",", -1);
             //extract date and temperature
-            System.out.println(parts[0]);
-            context.write(new Text(parts[0].substring(0,10)), new DoubleWritable(Double.parseDouble(parts[1])));
+            context.write(new Text(parts[0].substring(0,date_parse_end)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
     }
 
@@ -54,6 +71,8 @@ public class ProcessUnits {
     //Main function
     public static void main(String args[]) throws Exception {
         Configuration conf = new Configuration();
+
+        conf.set("time_unit", args[0]);
 
         Job job = new Job(conf, "avg_temp");
 
