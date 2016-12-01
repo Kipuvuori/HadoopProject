@@ -61,7 +61,7 @@ public class ProcessUnits {
             }
 
             //write key and value using 2 decimals
-            if(key != null && !key.equals("")){
+            if(!(key.toString().isEmpty())){
                 context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
             }
         }
