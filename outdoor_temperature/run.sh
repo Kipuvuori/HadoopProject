@@ -50,22 +50,13 @@ fi
 
 echo ''
 
-# Ask user if he wants to continue with current settings.
-read -p "Select unit of time (y,m,D)" -n 1 -r
-echo
-if [[  $REPLY =~ [Yy]$ ]]
-then
-    TIME_UNIT="y"
-    echo 'Calculating annual average temperature'
-    echo ''
-elif [[  $REPLY =~ [mM]$ ]]
-then
-    echo 'Calculating monthly average temperature'
-    TIME_UNIT="m"
-else
-    echo 'Calculating daily average temperature'
-    TIME_UNIT="d"
-fi
+# Ask user for prefered unit of time
+read -p "Select unit of time (y,m,D)" ans
+    case $ans in
+        [Yy]* ) echo 'Calculating annual average temperature';TIME_UNIT="y";;
+        [Mn]* ) echo 'Calculating monthly average temperature'; TIME_UNIT="m";;
+        * ) echo 'Calculating daily average temperature';  TIME_UNIT="d";;
+esac
 
 echo ''
 
