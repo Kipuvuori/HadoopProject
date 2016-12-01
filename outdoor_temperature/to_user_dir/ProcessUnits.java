@@ -54,14 +54,16 @@ public class ProcessUnits {
             double temp_sum = 0;
             int item_sum = 0;
 
-            //Looping and calculating average for each month
+            //Looping and calculating average for each time unit
             for (DoubleWritable val : values) {
                 temp_sum += val.get();
                 item_sum++;
             }
 
             //write key and value using 2 decimals
-            context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
+            if(key != null && !key.equals("")){
+                context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
+            }
         }
     }
 
