@@ -72,7 +72,7 @@ public class ProcessUnits {
     public static void main(String args[]) throws Exception {
         Configuration conf = new Configuration();
 
-        conf.set("time_unit", args[0]);
+        conf.set("time_unit", args[3]);
 
         Job job = new Job(conf, "avg_temp");
 
