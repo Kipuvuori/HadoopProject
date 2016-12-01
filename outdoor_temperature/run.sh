@@ -72,6 +72,9 @@ fi
 javac -classpath ${WORKING_DIR}/hadoop-core.jar -d ${UNITS_DIR} ${WORKING_DIR}/ProcessUnits.java
 # Making jar for the ProcessUnits.java program.
 jar -cvf ${WORKING_DIR}/units.jar -C ${UNITS_DIR}/ .
+# Clearing working directory for HDFS.
+${HADOOP_HOME}/bin/hadoop fs -rm -rf ${WORKING_DIR}
+${HADOOP_HOME}/bin/hadoop fs -mkdir -p ${WORKING_DIR}
 # Making input directory for HDFS.
 ${HADOOP_HOME}/bin/hadoop fs -mkdir -p ${INPUT_DIR}
 # Putting sample file to HDFS's input directory.
@@ -83,4 +86,4 @@ ${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INP
 # Checking files in output directory.
 ${HADOOP_HOME}/bin/hadoop fs -ls ${OUTPUT_DIR}/
 # Printing result to terminal.
-hdfs dfs -get ${OUTPUT_DIR ${WORKING_DIR}
+hdfs dfs -get ${OUTPUT_DIR} ${WORKING_DIR}
