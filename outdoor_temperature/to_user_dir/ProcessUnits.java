@@ -20,7 +20,7 @@ public class ProcessUnits {
 
             String record = value.toString();
             String[] parts = record.split(",");
-            context.write(new Text(parts[0].substring(0,6)), new DoubleWritable(Double.parseDouble(parts[1])));
+            context.write(new Text(parts[0].substring(0,7)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
     }
 
