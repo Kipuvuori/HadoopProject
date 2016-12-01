@@ -23,7 +23,7 @@ public class ProcessUnits {
             //split csv
             String[] parts = record.split(",");
             //extract date and temperature
-            context.write(new Text(parts[0].substring(0,7)), new DoubleWritable(Double.parseDouble(parts[1])));
+            context.write(new Text(parts[0].substring(10)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
     }
 
