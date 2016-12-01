@@ -19,7 +19,9 @@ public class ProcessUnits {
                 throws IOException, InterruptedException {
 
             String record = value.toString();
+            //split csv
             String[] parts = record.split(",");
+            //extract date and temperature
             context.write(new Text(parts[0].substring(0,7)), new DoubleWritable(Double.parseDouble(parts[1])));
         }
     }
@@ -30,16 +32,20 @@ public class ProcessUnits {
 
         public void reduce(Text key, Iterable<DoubleWritable> values,Context context) throws IOException, InterruptedException {
 
-            double maxValue = 0;
+            double temp_sum = 0;
+            int item_sum = 0;
 
-            //Looping and calculating Max for each year
+            //Looping and calculating average for each month
             for (DoubleWritable val : values) {
-                maxValue = Math.max(maxValue, val.get());
+                temp_sum += val.get();
+                item_sum++;
             }
 
-            context.write(key, new DoubleWritable(maxValue));
+            context.write(key, new DoubleWritable(temp_sum/item_sum));
         }
     }
+
+
 
 
     //Main function

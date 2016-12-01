@@ -85,7 +85,7 @@ ${HADOOP_HOME}/bin/hadoop fs -ls ${INPUT_DIR}/
 ${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INPUT_DIR} ${OUTPUT_DIR}
 # Checking files in output directory.
 ${HADOOP_HOME}/bin/hadoop fs -ls ${OUTPUT_DIR}/
-# Printing result to terminal?
+# Get files form hdfs
 hdfs dfs -get ${OUTPUT_DIR} ${WORKING_DIR}
 # Printing result to terminal.
 cat ${OUTPUT_DIR}/part-r-00000
