@@ -86,4 +86,4 @@ ${HADOOP_HOME}/bin/hadoop jar ${WORKING_DIR}/units.jar hadoop.ProcessUnits ${INP
 # Checking files in output directory.
 ${HADOOP_HOME}/bin/hadoop fs -ls ${OUTPUT_DIR}/
 # Printing result to terminal.
-hdfs dfs -get output_dir /user/hadoop
+hdfs dfs -get output_dir ${WORKING_DIR}
