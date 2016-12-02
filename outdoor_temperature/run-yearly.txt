@@ -92,5 +92,4 @@ Found 1 items
 Found 2 items
 -rw-r--r--   1 hadoop supergroup          0 2016-12-01 20:55 /user/hadoop/outdoor_temperature/output_dir/_SUCCESS
 -rw-r--r--   1 hadoop supergroup         21 2016-12-01 20:55 /user/hadoop/outdoor_temperature/output_dir/part-r-00000
-        -6.2
 2016    -3.85

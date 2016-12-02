@@ -93,7 +93,6 @@ Found 2 items
 -rw-r--r--   1 anton supergroup          0 2016-12-01 21:09 /home/anton/outdoor_temperature/working/output_dir/_SUCCESS
 -rw-r--r--   1 anton supergroup        481 2016-12-01 21:09 /home/anton/outdoor_temperature/working/output_dir/part-r-00000
 16/12/01 21:09:07 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-                -6.2
 2016-11-02      -0.19
 2016-11-03      -0.98
 2016-11-04      -2.96
