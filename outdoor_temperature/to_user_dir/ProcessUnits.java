@@ -40,8 +40,10 @@ public class ProcessUnits {
             String record = value.toString();
             //split csv
             String[] parts = record.split(",");
+            String date_time = parts[0].trim().substring(0,date_parse_end);
+            double temp = Double.parseDouble(parts[1]);
             //extract date and temperature
-            context.write(new Text(parts[0].substring(0,date_parse_end)), new DoubleWritable(Double.parseDouble(parts[1])));
+            context.write(new Text(date_time), new DoubleWritable(temp));
         }
     }
 
@@ -61,9 +63,7 @@ public class ProcessUnits {
             }
 
             //write key and value using 2 decimals
-            if(!(key.toString().isEmpty()) && !key.equals(" ")){
-                context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
-            }
+            context.write(key, new DoubleWritable(Math.round((temp_sum/item_sum)*100.0)/100.0));
         }
     }
 
