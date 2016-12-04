@@ -1,0 +1,96 @@
+[hadoop@flaky outdoor_temperature]$ chmod +x run.sh && ./run.sh
+Thu 1 Dec 20:52:56 EET 2016 Getting latest weather data to  /user/hadoop/HadoopProject/outdoor_temperature/to_user_dir/temperature.csv. This might take a while...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 11.5M  100 11.5M    0     0  1827k      0  0:00:06  0:00:06 --:--:-- 2005k
+
+Working directory: /user/hadoop/outdoor_temperature
+Sample file: /user/hadoop/outdoor_temperature/temperature.csv
+Do you want to continue (y/N)? y
+
+Select unit of time (y,m,D) m
+Calculating monthly average temperature
+
+added manifest
+adding: hadoop/(in = 0) (out= 0)(stored 0%)
+adding: hadoop/ProcessUnits.class(in = 1704) (out= 844)(deflated 50%)
+adding: hadoop/ProcessUnits$TempReduce.class(in = 1921) (out= 845)(deflated 56%)
+adding: hadoop/ProcessUnits$TempMap.class(in = 2095) (out= 880)(deflated 57%)
+16/12/01 20:53:11 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.
+Deleted /user/hadoop/outdoor_temperature
+Found 1 items
+-rw-r--r--   1 hadoop supergroup   12147951 2016-12-01 20:53 /user/hadoop/outdoor_temperature/input_dir/temperature.csv
+16/12/01 20:53:23 INFO client.RMProxy: Connecting to ResourceManager at /192.168.1.132:8050
+16/12/01 20:53:23 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+16/12/01 20:53:24 INFO input.FileInputFormat: Total input paths to process : 1
+16/12/01 20:53:24 INFO mapreduce.JobSubmitter: number of splits:1
+16/12/01 20:53:24 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1480587067815_0024
+16/12/01 20:53:24 INFO impl.YarnClientImpl: Submitted application application_1480587067815_0024
+16/12/01 20:53:24 INFO mapreduce.Job: The url to track the job: http://flaky:8088/proxy/application_1480587067815_0024/
+16/12/01 20:53:24 INFO mapreduce.Job: Running job: job_1480587067815_0024
+16/12/01 20:53:31 INFO mapreduce.Job: Job job_1480587067815_0024 running in uber mode : false
+16/12/01 20:53:31 INFO mapreduce.Job:  map 0% reduce 0%
+16/12/01 20:53:39 INFO mapreduce.Job:  map 100% reduce 0%
+16/12/01 20:53:46 INFO mapreduce.Job:  map 100% reduce 100%
+16/12/01 20:53:46 INFO mapreduce.Job: Job job_1480587067815_0024 completed successfully
+16/12/01 20:53:46 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=8785644
+                FILE: Number of bytes written=17807075
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=12148099
+                HDFS: Number of bytes written=41
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=4583
+                Total time spent by all reduces in occupied slots (ms)=4574
+                Total time spent by all map tasks (ms)=4583
+                Total time spent by all reduce tasks (ms)=4574
+                Total vcore-milliseconds taken by all map tasks=4583
+                Total vcore-milliseconds taken by all reduce tasks=4574
+                Total megabyte-milliseconds taken by all map tasks=4692992
+                Total megabyte-milliseconds taken by all reduce tasks=4683776
+        Map-Reduce Framework
+                Map input records=488091
+                Map output records=488091
+                Map output bytes=7809456
+                Map output materialized bytes=8785644
+                Input split bytes=148
+                Combine input records=0
+                Combine output records=0
+                Reduce input groups=3
+                Reduce shuffle bytes=8785644
+                Reduce input records=488091
+                Reduce output records=3
+                Spilled Records=976182
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=250
+                CPU time spent (ms)=5870
+                Physical memory (bytes) snapshot=457105408
+                Virtual memory (bytes) snapshot=3789295616
+                Total committed heap usage (bytes)=294649856
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=12147951
+        File Output Format Counters
+                Bytes Written=41
+Found 2 items
+-rw-r--r--   1 hadoop supergroup          0 2016-12-01 20:53 /user/hadoop/outdoor_temperature/output_dir/_SUCCESS
+-rw-r--r--   1 hadoop supergroup         41 2016-12-01 20:53 /user/hadoop/outdoor_temperature/output_dir/part-r-00000
+2016-11 -3.86
+2016-12 -2.21
