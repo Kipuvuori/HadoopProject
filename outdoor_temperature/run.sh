@@ -51,10 +51,11 @@ fi
 echo ''
 
 # Ask user for prefered unit of time
-read -p "Select unit of time (y,m,D) " ans
+read -p "Select unit of time (y,m,D,h) " ans
     case $ans in
         [Yy]* ) echo 'Calculating yearly average temperature';TIME_UNIT="y";;
         [Mm]* ) echo 'Calculating monthly average temperature'; TIME_UNIT="m";;
+		[Hh]* ) echo 'Calculating hourly average temperature'; TIME_UNIT="h";;
         * ) echo 'Calculating daily average temperature';  TIME_UNIT="d";;
 esac
 

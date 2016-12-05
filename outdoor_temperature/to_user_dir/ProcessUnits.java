@@ -33,6 +33,10 @@ public class ProcessUnits {
                     date_parse_end = 7;
                     break;
 
+                case 'h' :
+                    date_parse_end = 13;
+                    break;
+
                 default :
                     date_parse_end = 10;
             }

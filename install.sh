@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Install java
 
 # Adding Hadoop user
