@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # Installing Hadoop
 echo 'export HADOOP_MAPRED_HOME=$HADOOP_HOME' >> ~/.bashrc
 echo 'export HADOOP_COMMON_HOME=$HADOOP_HOME' >> ~/.bashrc
